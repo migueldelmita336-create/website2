@@ -195,7 +195,7 @@ ul li a:hover{
     right: 25px;
     font-size: 1em;
     color: white;
-    background: orange;
+    background: white;
     padding: 10px 22px;
     border-radius: 4px;
     text-decoration: none;
@@ -354,7 +354,7 @@ main {
   display: inline-block;
   margin-top: 22px;
   padding: 10px 24px;
-  background: orange;
+  background: white;
   color: black;
   border-radius: 6px;
   text-decoration: none;
@@ -365,5 +365,6 @@ main {
   background: var(--accent-hover, #143d8c);
 
 }
+
 
 
