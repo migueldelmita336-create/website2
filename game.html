@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scenario Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <section class="card" id="game">
+      <h2>Scenario Game</h2>
+      <div id="question"></div>
+      <div id="choices"></div>
+      <div class="feedback" id="feedback"></div>
+      <button class="next-btn" id="nextBtn" style="display:none;">Next Scenario</button>
+    </section>
+    <a href="index.html" class="back-btn">← Back to Home</a>
+
+
+  </main>
+
+  <script>
+    const questions = [
+      {
+        text: "You disagree in a forum but reply politely.",
+        answer: "Remember the Human",
+        choices: ["Remember the Human", "Respect privacy", "Make yourself look good"]
+      },
+      {
+        text: "Before posting in a class chat, you check if it is for homework only.",
+        answer: "Know where you are in cyberspace",
+        choices: ["Share expert knowledge", "Know where you are in cyberspace", "Be forgiving of mistakes"]
+      },
+      {
+        text: "You run spell-check before sending an email.",
+        answer: "Make yourself look good online",
+        choices: ["Make yourself look good online", "Respect privacy", "Help keep flame wars under control"]
+      }
+    ];
+
+    let current = 0;
+
+    function getEls() {
+      return {
+        questionEl: document.getElementById('question'),
+        choicesEl: document.getElementById('choices'),
+        feedbackEl: document.getElementById('feedback'),
+        nextBtn: document.getElementById('nextBtn')
+      };
+    }
+
+    function showQuestion() {
+      const { questionEl, choicesEl, feedbackEl, nextBtn } = getEls();
+      const q = questions[current];
+      questionEl.textContent = `Scenario ${current + 1}: ${q.text}`;
+      choicesEl.innerHTML = '';
+      feedbackEl.textContent = '';
+      feedbackEl.className = 'feedback';
+      q.choices.forEach(choice => {
+        const btn = document.createElement('button');
+        btn.textContent = choice;
+        btn.className = 'choice-btn';
+        btn.onclick = () => selectAnswer(choice, q.answer, btn);
+        choicesEl.appendChild(btn);
+      });
+      nextBtn.style.display = 'none';
+    }
+
+    function selectAnswer(choice, answer, btn) {
+      const { feedbackEl, nextBtn } = getEls();
+      const buttons = document.querySelectorAll('.choice-btn');
+      buttons.forEach(b => b.disabled = true);
+
+      if (choice === answer) {
+        feedbackEl.textContent = '✅ Correct!';
+        feedbackEl.className = 'feedback correct';
+        btn.style.backgroundColor = '#d4edda';
+      } else {
+        feedbackEl.textContent = `❌ Incorrect. Correct answer: ${answer}`;
+        feedbackEl.className = 'feedback wrong';
+        btn.style.backgroundColor = '#f8d7da';
+        buttons.forEach(b => {
+          if (b.textContent === answer) {
+            b.style.backgroundColor = '#d4edda';
+          }
+        });
+      }
+      nextBtn.style.display = current < questions.length - 1 ? 'inline-block' : 'none';
+    }
+
+    document.getElementById('nextBtn').onclick = () => {
+      current++;
+      if (current < questions.length) {
+        showQuestion();
+      }
+    };
+
+    // Initialize the first question
+    showQuestion();
+  </script>
+</body>
+</html>

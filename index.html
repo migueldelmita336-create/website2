@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Netiquettes Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">Netiquettes</h2>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="Rule1-2.html">RULE 1&2</a></li>
+                    <li><a href="Rule3-4.html">RULE 3&4</a></li>
+                    <li><a href="Rule5-6.html">RULE 5&6</a></li>
+                    <li><a href="Rule7-8.html">RULE 7&8</a></li>
+                    <li><a href="Rule9-10.html">RULE 9&10</a></li>
+                    <li><a href="game.html">GAME</a></li>
+    
+                </ul>
+
+
+            </div>
+
+            <div class="search">
+                <input class="srch" type="search" id="searchInput" placeholder="Type to search">
+                <button class="btn" onclick="searchSite()">Search</button>
+            </div>
+        </div>
+
+        <div class="content">
+    <h1>Netiquettes & <br><span>Rules</span></h1>
+    <p class="par">Netiquette is the set of polite and responsible behaviors we use when communicating online. <br>
+    These guidelines help us keep conversations clear, kind, and safe.</p>
+    <div id="ruleInfo"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+      function showRuleInfo(rule) {
+          var info = {
+              "rule1-2": "<h2>Rule 1 & 2</h2><p>Info about Rule 1 and Rule 2...</p>",
+              "rule3-4": "<h2>Rule 3 & 4</h2><p>Info about Rule 3 and Rule 4...</p>",
+              "rule5-6": "<h2>Rule 5 & 6</h2><p>Info about Rule 5 and Rule 6...</p>",
+              "rule7-8": "<h2>Rule 7 & 8</h2><p>Info about Rule 7 and Rule 8...</p>",
+              "rule9-10": "<h2>Rule 9 & 10</h2><p>Info about Rule 9 and Rule 10...</p>"
+          };
+          document.getElementById('ruleInfo').innerHTML = info[rule] || "<p>No info available.</p>";
+      }
+    </script>
+
+    <script>
+function openAbout() {
+    window.location.href = 'about.html'; // Change to the file you want to open
+}
+</script>
+
+</body>
+</html>
+
