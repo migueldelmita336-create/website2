@@ -6,7 +6,7 @@
 
 .main{
     width: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(1.jpg.jpg);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(2.jpg);
     background-size: cover;
     height: 109vh;
 }
@@ -363,4 +363,5 @@ main {
 }
 .back-btn:hover {
   background: var(--accent-hover, #143d8c);
+
 }
