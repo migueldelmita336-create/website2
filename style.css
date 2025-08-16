@@ -185,7 +185,7 @@ ul li a:hover{
 
 
 .main a:hover {
-    background: orange;
+    background: gray;
 }
 
 
@@ -365,4 +365,5 @@ main {
   background: var(--accent-hover, #143d8c);
 
 }
+
 
