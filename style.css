@@ -156,7 +156,7 @@ ul li a:hover{
 }
  
 .content span{
-    color: orange;
+    color: white;
     font-size: 60px;
 }
 
@@ -365,3 +365,4 @@ main {
   background: var(--accent-hover, #143d8c);
 
 }
+
